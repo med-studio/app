@@ -52,7 +52,7 @@ model, processor = load_model_v2(device=device)
 import os
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 token = os.getenv("HF_AUTH_TOKEN")
 dataset = load_pathvqa_dataset(token)
 examples = dataset["train"]

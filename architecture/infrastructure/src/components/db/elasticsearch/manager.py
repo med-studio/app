@@ -3,7 +3,8 @@ from elasticsearch import Elasticsearch
 from dotenv import load_dotenv
 from typing import Dict, Any, List
 
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
+
 uri = os.getenv("ES_URI")
 es_user = os.getenv("ES_USER")
 es_password = os.getenv("ES_PASSWORD")

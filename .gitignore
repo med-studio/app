@@ -60,7 +60,7 @@ storage/resnet18_isic2018_5_epochs.zip
 
 system/src/core/components/http_ca.crt
 
-system/src/interface/draft_manuscript_v2.pdf
+architecture/system/assets/draft_manuscript_v2.pdf
 
 system/src/core/config/.env
 
@@ -79,3 +79,7 @@ data_sample_50_predicted.csv
 eval_v1.csv
 
 eval_v2.csv
+
+architecture/.env
+architecture/system/assets/model_weights/resnet18_isic2018_5_epochs.pth
+architecture/system/assets/model_weights/deeplabv3_plus_pretrained_model_isic_2018.pth.tar

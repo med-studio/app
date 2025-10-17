@@ -42,7 +42,7 @@ class EvaluateCategory:
         return accuracy
     
 if __name__ == "__main__":
-    data = pd.read_csv("system/core/dataset/processed/medquad_qa_pairs.csv")
+    data = pd.read_csv("architecture/infrastructure/datasets/processed/medquad_qa_pairs.csv")
     print(data.size)
     dt = data.sample(1000, random_state=42)
     from embeddings import Embedding

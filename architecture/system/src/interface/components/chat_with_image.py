@@ -5,7 +5,18 @@ import random
 from PIL import Image
 import torch
 
-from system.src.interface.controllers.chat_with_image import (
+import sys
+import os
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path="architecture/.env")
+
+project_root = os.getenv("PROJECT_ROOT")
+
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+from architecture.system.src.interface.controllers.chat_with_image import (
     load_model,
     predict_and_plot,
     preprocess_image,
@@ -47,10 +58,10 @@ def render():
 
     cols = st.columns(5)
     for idx, img_path in enumerate(sample_images):
-        with cols[idx % 5]:
+        with cols[idx % 5]: 
             try:
                 img = Image.open(img_path)
-                st.image(img, use_container_width=True,
+                st.image(img, width='stretch',
                          caption=os.path.basename(img_path))
                 st.button(
                     "Thử với mẫu này",
@@ -98,7 +109,7 @@ def render():
                 image_name = os.path.splitext(os.path.basename(
                     st.session_state.selected_sample_image))[0]
                 st.image(
-                    image, caption=f'Ảnh mẫu: {image_name}', use_container_width=True)
+                    image, caption=f'Ảnh mẫu: {image_name}', width='stretch')
             except Exception as e:
                 st.error(f"Lỗi khi đọc ảnh mẫu: {e}")
                 return
@@ -108,7 +119,7 @@ def render():
             image = Image.open(image_io).convert('RGB')
             image_name = os.path.splitext(uploaded_file.name)[0]
             st.image(image, caption='Hình ảnh đã tải lên ..',
-                     use_container_width=True)
+                     width='stretch')
 
         with st.spinner("Đang phân loại tổn thương..."):
             try:
@@ -194,4 +205,4 @@ def render():
 
         st.subheader("🖼️ Kết quả phân đoạn tổn thương")
         st.image(segmented_image_bytes,
-                 caption="Hình ảnh kết quả phân đoạn", use_container_width=True)
+                 caption="Hình ảnh kết quả phân đoạn", width='stretch')

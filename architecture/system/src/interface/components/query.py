@@ -1,5 +1,17 @@
 import streamlit as st
 
+import os
+import sys
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path="architecture/.env")
+
+project_root = os.getenv("PROJECT_ROOT")
+
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+print("Project root added to sys.path:", project_root)
+
 from architecture.infrastructure.src.components.db.elasticsearch.retriever import ElasticsearchRetriever
 from architecture.infrastructure.src.components.db.qdrant.retriever import QdrantRetriever
 from deep_translator import GoogleTranslator

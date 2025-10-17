@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-data_dir = "system/src/core/medical_information"
+data_dir = "architecture/infrastructure/datasets/medical_information"
 
 complications_data = data_dir + "/complications.csv"
 concepts_data = data_dir + "/concepts.csv"
@@ -14,7 +14,7 @@ df_complications = pd.read_csv(complications_data, encoding="utf-8")
 df_concepts = pd.read_csv(concepts_data, encoding="utf-8")
 
 
-dataset = pd.read_csv("system/dataset/processed/medquad_qa_pairs.csv", encoding="utf-8")
+dataset = pd.read_csv("architecture/infrastructure/datasets/processed/medquad_qa_pairs.csv", encoding="utf-8")
 
 class MedicalSearchController:
     def __init__(self):

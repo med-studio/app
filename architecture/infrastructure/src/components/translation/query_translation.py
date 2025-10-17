@@ -7,8 +7,12 @@ import os
 import sys
 from dotenv import load_dotenv
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-load_dotenv(dotenv_path="system/core/src/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
+
+project_root = os.getenv("PROJECT_ROOT")
+
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 from api import APIKeyManager
 

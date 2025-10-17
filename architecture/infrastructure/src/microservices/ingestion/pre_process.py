@@ -1,6 +1,17 @@
 import pandas as pd
 from typing import List, Dict, Any
 
+import os
+import sys
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path="system/core/src/config/.env")
+
+project_root = os.getenv("PROJECT_ROOT")
+
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
 class PreProcess():
     """
     # Sample structure data: text chunks with metadata
@@ -16,7 +27,7 @@ class PreProcess():
         ]
     """
 
-    def __init__(self, in_path='../../dataset/raw/medquad_qa_pairs.csv', out_path='../../dataset/processed/medquad_qa_pairs.csv'):
+    def __init__(self, in_path='architecture/infrastructure/datasets/raw/medquad_qa_pairs.csv', out_path='architecture/infrastructure/datasets/processed/medquad_qa_pairs.csv'):
         self.in_path = in_path
         self.out_path = out_path
 

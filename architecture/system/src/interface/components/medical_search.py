@@ -1,7 +1,7 @@
 import streamlit as st
 import math
 
-from system.src.interface.controllers.medical_search import MedicalSearchController
+from architecture.system.src.interface.controllers.medical_search import MedicalSearchController
 
 def render():
     st.subheader("🩺 Medical search")

@@ -1,7 +1,7 @@
 import streamlit as st
 import math
 
-from system.src.interface.controllers.drug_discovery import DrugDiscoveryController
+from architecture.system.src.interface.controllers.drug_discovery import DrugDiscoveryController
 
 def render():
     st.subheader("💊 Drug discovery")

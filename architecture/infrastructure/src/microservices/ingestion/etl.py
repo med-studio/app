@@ -1,8 +1,8 @@
 from deep_translator import GoogleTranslator
 import pandas as pd
 
-raw_data = "E:/source_code/nlp/med_studio/system/core/dataset/raw/medical_tc_train.csv"
-processed_data_path = "E:/source_code/nlp/med_studio/system/core/dataset/processed/medical_tc_train.csv"
+raw_data = "architecture/infrastructure/datasets/raw/medical_tc_train.csv"
+processed_data_path = "architecture/infrastructure/datasets/processed/medical_tc_train.csv"
 
 def translate(text: str, src: str = "en", dest: str = "vi"):
     return GoogleTranslator(source=src, target=dest).translate(text=text)

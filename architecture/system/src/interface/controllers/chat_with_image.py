@@ -12,14 +12,14 @@ from torchvision import transforms
 from dotenv import load_dotenv
 import torchvision
 
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 project_root = os.getenv("PROJECT_ROOT")
 
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from system.src.interface.models.deeplabv3_plus import Deeplabv3Plus
+from architecture.system.src.interface.models.deeplabv3_plus import Deeplabv3Plus
 
 
 def load_model(model_path):
@@ -275,5 +275,5 @@ def load_ground_truth_labels(csv_path):
         label_dict[image_id] = class_index
     return label_dict
 
-label_csv_path = "storage/ISIC2018_Task3_Training_GroundTruth.csv"
+label_csv_path = "architecture/system/assets/demo_data/isic_2018/ISIC2018_Task3_Training_GroundTruth.csv"
 ground_truth_labels = load_ground_truth_labels(label_csv_path)

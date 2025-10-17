@@ -7,7 +7,7 @@ from datetime import datetime
 from elasticsearch import Elasticsearch
 
 from dotenv import load_dotenv
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 project_root = os.getenv("PROJECT_ROOT")
 if project_root not in sys.path:
@@ -49,7 +49,7 @@ if USING_QDRANT:
         
         print("Collection created successfully!")
         
-        dt = pd.read_csv('system/dataset/processed/medquad_qa_pairs.csv')
+        dt = pd.read_csv('architecture/infrastructure/datasets/processed/medquad_qa_pairs.csv')
         
         batch_size=500
         dt["content"] = dt["question"] + " " + dt["answer"]
@@ -133,7 +133,7 @@ if not USING_QDRANT:
         print("Index created successfully!")
 
         df = pd.read_csv(
-            'E:/source_code/nlp/med_studio/system/dataset/processed/medquad_qa_pairs.csv')
+            'architecture/infrastructure/datasets/processed/medquad_qa_pairs.csv')
         print(f"\n ---- Dataset overview: \n{df.describe()} ---- \n\n")
 
         embed_model = Embedding(embedding_model_name="all-MiniLM-L6-v2")
@@ -174,7 +174,7 @@ if not USING_QDRANT:
         print("\n ---- Task 2: Read data from source, embedding data and index all data (documents) ---- \n")
 
         df = pd.read_csv(
-            'E:/source_code/nlp/med_studio/system/dataset/processed/medquad_qa_pairs.csv')
+            'architecture/infrastructure/datasets/processed/medquad_qa_pairs.csv')
 
         print(f"\n ---- Dataset overview: \n{df.describe()} ---- \n\n")
 

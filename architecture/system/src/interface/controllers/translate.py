@@ -4,7 +4,7 @@ from langchain_core.output_parsers import StrOutputParser
 import os
 import sys
 from dotenv import load_dotenv
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 project_root = os.getenv("PROJECT_ROOT")
 
@@ -20,13 +20,13 @@ translator_gemini = QueryTranslator_GEMINI(
     api_key=APIKeyManager("GEMINI_API_KEY"),
 )
 
-from system.src.core.viet_translate.opus_translate import OpusTranslator
+from architecture.infrastructure.src.microservices.viet_translate.opus_translate import OpusTranslator
 opus_translate = OpusTranslator()
 
-from system.src.core.viet_translate.vietai_envit5 import VietaiEnviT5Translator
+from architecture.infrastructure.src.microservices.viet_translate.vietai_envit5 import VietaiEnviT5Translator
 translator_vietai = VietaiEnviT5Translator()
 
-from system.src.core.viet_translate.vinai_translate import VinaiTranslator
+from architecture.infrastructure.src.microservices.viet_translate.vinai_translate import VinaiTranslator
 translator_vinai = VinaiTranslator()  
 
 class TranslateController:

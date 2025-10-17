@@ -8,14 +8,14 @@ import os
 from dotenv import load_dotenv
 
 # === fix import module
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 project_root = os.getenv("PROJECT_ROOT")
 
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
     
-from system.src.interface.controllers.message import MessageController
+from architecture.system.src.interface.controllers.message import MessageController
 
 def response_generator(query: str, task: str):
     if task == "try_with_llama":

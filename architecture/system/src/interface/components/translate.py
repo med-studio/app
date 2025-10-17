@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from system.src.interface.controllers.translate import TranslateController
+from architecture.system.src.interface.controllers.translate import TranslateController
 
 languages = ["English", "Vietnamese"]
 
@@ -49,4 +49,4 @@ def render():
     }
 
     df = pd.DataFrame(data)
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, width='stretch', hide_index=True)

@@ -7,7 +7,7 @@ from elasticsearch import Elasticsearch
 from dotenv import load_dotenv
 
 # === fix import module
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 project_root = os.getenv("PROJECT_ROOT")
 
@@ -15,7 +15,7 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 from architecture.infrastructure.src.components.advanced.query_optimization.query_expanison import QueryExpansion
-from system.src.core.microservices.rag.generation.generator import Generator
+from architecture.infrastructure.src.microservices.rag.generation.generator import Generator
 from architecture.infrastructure.src.components.db.elasticsearch.retriever import ElasticsearchRetriever
 from architecture.infrastructure.src.components.api.api_keys import APIKeyManager
 
@@ -40,7 +40,7 @@ from architecture.infrastructure.src.components.api.api_keys import APIKeyManage
 api_key = APIKeyManager(name="GEMINI_API_KEY")
 model= 'gemini-1.5-pro'
 
-from system.src.core.microservices.rag.generation.generator import Generator
+from architecture.infrastructure.src.microservices.rag.generation.generator import Generator
 query_generator = Generator(
     model=model,
     api_key=api_key
@@ -218,7 +218,7 @@ class MessageController:
 
         if classified_query == "disease_info":
             step_box.info("Detecting category...")
-            dt = pd.read_csv("system/dataset/processed/medquad_qa_pairs.csv")
+            dt = pd.read_csv("architecture/infrastructure/datasets/processed/medquad_qa_pairs.csv")
             categories = dt['focus_area'].unique().tolist()
 
             cate = cate_classifier.classify(

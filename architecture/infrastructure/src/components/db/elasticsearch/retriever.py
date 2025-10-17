@@ -4,7 +4,7 @@ from elasticsearch import Elasticsearch
 from dotenv import load_dotenv
 
 
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 project_root = os.getenv("PROJECT_ROOT")
 

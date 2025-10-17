@@ -5,7 +5,7 @@ from deep_translator import GoogleTranslator
 from dotenv import load_dotenv
 
 # === fix import module
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 project_root = os.getenv("PROJECT_ROOT")
 

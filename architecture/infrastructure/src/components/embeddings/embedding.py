@@ -5,7 +5,7 @@ from typing import List, Union
 import torch
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="system/src/core/config/.env")
+load_dotenv(dotenv_path="architecture/.env")
 
 class Embedding:
     def __init__(self, embedding_model_name: str = os.getenv("EMBEDDING_MODEL")):

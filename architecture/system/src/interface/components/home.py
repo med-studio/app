@@ -5,13 +5,13 @@ def render():
     st.subheader("🏠 Home")
     st.subheader("MedStudio | Comprehensive Intelligent Medical Platform")
 
-    with open("system/src/interface/draft_manuscript_v2.pdf", "rb") as f:
+    with open("architecture/system/assets/draft_manuscript_v2.pdf", "rb") as f:
         pdf_data = f.read()
 
     st.download_button(
         label="📄 View draft manuscript",
         data=pdf_data,
-        file_name="system/src/interface/draft_manuscript_v2.pdf",
+        file_name="architecture/system/assets/draft_manuscript_v2.pdf",
         mime="application/pdf"
     )
 
@@ -134,7 +134,7 @@ def render():
             "SacreBLEU Score": [31.26, 42.67, 49.07, 27.87, 71.41, 71.28],
             "Number of test steps": [63, 63, 63, 5, 5, 63]
         })
-        st.dataframe(data_mt, use_container_width=True)
+        st.dataframe(data_mt, width='stretch')
 
 
     with tab3:
@@ -146,14 +146,14 @@ def render():
             "Train": [890, 879, 800, 411, 262, 114, 92],
             "Validation": [223, 220, 200, 103, 65, 28, 23]
         })
-        st.dataframe(dataset, use_container_width=True)
+        st.dataframe(dataset, width='stretch')
 
         st.markdown("#### 📈 Batch Prediction Accuracy (Validation)")
         batch_accuracy = pd.DataFrame({
             "Accuracy": ["82.00%", "78.00%", "77.50%", "77.89%"],
             "Correct / Total": ["41/50", "390/500", "310/400", "296/380"]
         })
-        st.dataframe(batch_accuracy, use_container_width=True)
+        st.dataframe(batch_accuracy, width='stretch')
 
 
     with tab4:
